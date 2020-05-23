@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/decoding_token', to: "auth#auth_token"
   devise_for :users,
              path: '',
              path_names: {
