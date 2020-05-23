@@ -1,5 +1,17 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base
+  skip_before_action :verify_authenticity_token
+  protect_from_forgery with: :null_session
   # before_action :authenticate_user!
+
+  def authenticate_admin_user!
+    current_admin_user
+    redirect_to new_admin_user_session_path if current_admin_user.nil?
+  end
+
+  def access_denied(exception)
+    flash[:danger] = exception.message
+    redirect_to root_url
+  end
 
   def render_resource(resource)
     if resource.errors.empty?
