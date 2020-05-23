@@ -3,7 +3,9 @@ class ApplicationController < ActionController::API
 
   def render_resource(resource)
     if resource.errors.empty?
-      render json: resource
+      payload = { user_id: resource.id }
+      token = encode_token(payload)
+      render json: { auth_token: token }
     else
       validation_error(resource)
     end
@@ -20,5 +22,9 @@ class ApplicationController < ActionController::API
         }
       ]
     }, status: :bad_request
+  end
+
+  def encode_token(payload)
+    JWT.encode(payload, 'my_secret')
   end
 end
