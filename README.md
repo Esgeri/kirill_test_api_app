@@ -118,6 +118,8 @@ http :3000/signup email=john@mail.com password=foobar password_confirmation=foob
 }
 ```
 
+#
+
 **Логин**
 ```
 method: ‘POST’
@@ -141,6 +143,8 @@ http :3000/login email=john@mail.com password=foobar
     "auth_token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.V0z1TcfuH6MgWtsXxcz0cejD1e6ES3lvfF6uqtU6CAg"
 }
 ```
+
+#
 
 **Декодирование токена. Проверка**
 ```
@@ -167,6 +171,8 @@ http GET :3000/decoding_token Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2V
     "updated_at": "2020-05-23T05:43:18.062Z"
 }
 ```
+
+#
 
 **Создание заметки**
 ```
@@ -199,6 +205,8 @@ http POST :3000/notifications title=Title body=Nbody push_time=2020-05-24 09:19:
     "user_id": 1
 }
 ```
+
+#
 
 **Отправка заметки**
 ```
