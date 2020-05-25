@@ -1,24 +1,58 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Тестовая задание от Кирилла Подгорного
 
-Things you may want to cover:
+"Создать api для авторизации(регистрация и логин), добавить админку со списком пользователей, которых можно редактировать (дизайн простейший или на свое усмотрение). Добавить в апи метод для создания пользователем заметки, которая будет сохранятся в текстовом виде, со временем, когда пользователь хочет получить напоминание об этой заметке. Для напоминания реализовать функционал пуш-уведомлений, на iOS или Android на выбор. Ко всему вышеперечисленному реализовать документацию API."
 
-* Ruby version
+## Приступая к работе
 
-* System dependencies
+Проверьте версии
+```
+$ ruby -v  # ruby 2.5.1
+$ rails -v # rails 6.0.3.1
+```
 
-* Configuration
+### Установка
 
-* Database creation
+##### Склонируйте репозиторий
+```
+$ git@github.com:Esgeri/kirill_test_api_app.git
+```
 
-* Database initialization
+##### Установите гемы
+```
+$ bundle install
+```
 
-* How to run the test suite
+##### Установка Rpush
+```
+rpush init
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+##### Создание базы данных
+```
+rails db:createL:all
+```
 
-* Deployment instructions
+##### Создание миграции
+```
+$ rake db:migrate
+```
 
-* ...
+##### Создание сидов
+```
+$ rake db:seed
+```
+
+##### Пользователь администратор
+```
+Email: 'admin@example.com'
+Password: 'password'
+```
+
+##
+__Note:__ Rails Api Test App
+
+### Author
+
+* **Mirbek Askerov's** - [Resume](https://esgeri.github.io/cv)
