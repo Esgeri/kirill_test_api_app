@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get '/decoding_token', to: "auth#auth_token"
   post '/notifications' => 'notifications#create'
+  get '/notification/notify' => 'notifications#notify'
   devise_for :users,
              path: '',
              path_names: {
