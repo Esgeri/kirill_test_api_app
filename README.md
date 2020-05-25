@@ -56,41 +56,55 @@ Password: 'password'
 Интеграция нашего API в свое приложение для получения данных.
 
 **Регистрация**
+```
 url:/signup
 method:'POST'
 parameters body:email[required], password[required], password_confirmation[required]
+```
 
 **Логин**
+```
 url:/login
 method:'POST'
 parameters body:email[required], password[required]
+```
 
 **Декодирование токена. Проверка**
+```
 url:/decoding_token
 method:'GET'
 parameters body:auth_token[required]
+```
 
 **Создание заметки пользователем**
+```
 url:/notifications
 method:'POST'
 parameters body:title[required],body[required],push_time[required],auth_token[required]
+```
 
 **Отправка заметки**
+```
 url:/notification/notify
 method:'GET'
 parameters body:auth_token[required]
+```
 
 Для отправки запроса можно применить консольное приложение [httpie](https://httpie.org/)
 
 ## Примеры вызовов API
 
 **Регистрация пользователя**
+```
 method: ‘POST’
 url: localhost:3000/signup
+```
 
 **Параметры**
+```
 email: john@mail.com
 password: foobar
+```
 
 **Запрос**
 ```
@@ -105,12 +119,16 @@ http :3000/signup email=john@mail.com password=foobar password_confirmation=foob
 ```
 
 **Логин**
+```
 method: ‘POST’
 url: localhost:3000/login
+```
 
 **Параметры**
+```
 email: john@mail.com
 password: foobar
+```
 
 **Запрос**
 ```
@@ -125,11 +143,15 @@ http :3000/login email=john@mail.com password=foobar
 ```
 
 **Декодирование токена. Проверка**
+```
 method: ‘GET’
 url: localhost:3000/decoding_token
+```
 
 **Параметры**
+```
 auth_token: Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.V0z1TcfuH6MgWtsXxcz0cejD1e6ES3lvfF6uqtU6CAg"
+```
 
 **Запрос**
 ```
@@ -147,14 +169,18 @@ http GET :3000/decoding_token Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2V
 ```
 
 **Создание заметки**
+```
 method: ‘POST’
 url: localhost:3000/notifications
+```
 
 **Параметры**
+```
 title: Title
 body: Nbody
 push_time: 2020-05-24 09:19:55
 auth_token: Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.V0z1TcfuH6MgWtsXxcz0cejD1e6ES3lvfF6uqtU6CAg"
+```
 
 **Запрос**
 ```
@@ -175,11 +201,15 @@ http POST :3000/notifications title=Title body=Nbody push_time=2020-05-24 09:19:
 ```
 
 **Отправка заметки**
+```
 method: ‘GET’
 url: localhost:3000/notifications/notify
+```
 
 **Параметры**
+```
 auth_token: Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.V0z1TcfuH6MgWtsXxcz0cejD1e6ES3lvfF6uqtU6CAg"
+```
 
 **Запрос**
 ```
